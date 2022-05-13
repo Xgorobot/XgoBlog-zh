@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/XgoBlog-zh/images/xgo_icon180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/XgoBlog-zh/images/xgo_icon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/XgoBlog-zh/images/xgo_icon16.png">
+  <link rel="mask-icon" href="/XgoBlog-zh/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/XgoBlog-zh/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xgorobot.github.io","root":"/XgoBlog-zh/","images":"/XgoBlog-zh/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":9,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/XgoBlog-zh/js/config.js"></script>
+<meta name="description" content="XGO-Mini K210是一款具有十二自由度桌面级Al机器狗 ，可实现全向移动、六维姿态控制、姿态稳定、多种运动步态。 内部搭载9轴IMU、关节位置传感器和电流传感器反馈自身姿态和关节转角与力矩，用于内部算法和二次开发。支持电脑对机器狗进行图形化和python编程，开发AI应用。为教育、研究、算法验证和娱乐而设计的。 XGO Mini拥有功能齐全的人工智能模块，可方便入门级和高级人工智能应用">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luwu Dynamics">
+<meta property="og:url" content="https://xgorobot.github.io/XgoBlog-zh/technology/index.html">
+<meta property="og:site_name" content="Luwu Dynamics">
+<meta property="og:description" content="XGO-Mini K210是一款具有十二自由度桌面级Al机器狗 ，可实现全向移动、六维姿态控制、姿态稳定、多种运动步态。 内部搭载9轴IMU、关节位置传感器和电流传感器反馈自身姿态和关节转角与力矩，用于内部算法和二次开发。支持电脑对机器狗进行图形化和python编程，开发AI应用。为教育、研究、算法验证和娱乐而设计的。 XGO Mini拥有功能齐全的人工智能模块，可方便入门级和高级人工智能应用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/IntroducingXGO-Mini.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/IntroducingXGO-Mini2.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/IntroducingXGO-Mini3.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI2.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI3.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI4.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI5.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI6.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/AdvancedAI7.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver2.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver3.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver4.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver5.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/MoreAgileThanEver6.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/EasytoUse.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/EasytoUse2.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/EasytoUse3.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/EasytoUse4.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities2.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities3.jpg">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities4.jpg">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities5.png">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/%E4%BB%BF%E7%9C%9F.gif">
+<meta property="og:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/Possibilities6.png">
+<meta property="article:published_time" content="2021-08-14T02:57:34.000Z">
+<meta property="article:modified_time" content="2022-03-21T09:14:24.429Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xgorobot.github.io/XgoBlog-zh/technology/index/IntroducingXGO-Mini.png">
+
+
+<link rel="canonical" href="https://xgorobot.github.io/XgoBlog-zh/technology/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://xgorobot.github.io/XgoBlog-zh/technology/index.html","path":"technology/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Luwu Dynamics
+</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/XgoBlog-zh/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/XgoBlog-zh/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Luwu Dynamics</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-product"><a href="/XgoBlog-zh/product/" rel="section"><i class="fas fa-dog fa-fw"></i>产品</a></li>
+        <li class="menu-item menu-item-technology"><a href="/XgoBlog-zh/technology/" rel="section"><i class="fas fa-folder fa-fw"></i>技术</a></li>
+        <li class="menu-item menu-item-wiki"><a href="https://www.xgorobot.com/XgoWiki/" rel="noopener" target="_blank"><i class="fas fa-archive fa-fw"></i>Wiki</a></li>
+        <li class="menu-item menu-item-about"><a href="/XgoBlog-zh/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-switch_en"><a href="https://www.xgorobot.com/" rel="noopener" target="_blank"><i class="fas fa-globe fa-fw"></i>English</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/XgoBlog-zh/images/xgo_icon1024.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Xgorobot" title="GitHub https:&#x2F;&#x2F;github.com&#x2F;Xgorobot → https:&#x2F;&#x2F;github.com&#x2F;Xgorobot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub https://github.com/Xgorobot</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Xgorobot" title="Gitee https:&#x2F;&#x2F;gitee.com&#x2F;Xgorobot → https:&#x2F;&#x2F;gitee.com&#x2F;Xgorobot" rel="noopener" target="_blank"><i class="fab fa-github-square fa-fw"></i>Gitee https://gitee.com/Xgorobot</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hello@xgorobot.com" title="E-Mail hello@xgorobot.com → mailto:hello@xgorobot.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail hello@xgorobot.com</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Xgorobot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+  
+  
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <!-- ## 产品手册
+[-- 产品手册](index/xgo-mini说明书&快速使用手册.pdf)
+
+## AI模块固件和Sd卡文件
+
+[-- AI模块固件(中文) github](https://github.com/Xgorobot/XgoAI/blob/cs/cocorobo-ai-module_firmware_2021-5-20_(%E4%B8%AD%E6%96%87)_STABLE.kfpkg)
+[-- AI模块固件(en) github](https://github.com/Xgorobot/XgoAI/blob/en/xgo-ai-module-firmware-210722-en-2021-07-22-14-48-10.kfpkg)
+
+[-- AI模块固件(中文) gitee](https://gitee.com/Xgorobot/XgoAI/blob/cs/cocorobo-ai-module_firmware_2021-5-20_(%E4%B8%AD%E6%96%87)_STABLE.kfpkg)
+[-- AI模块固件(en) gitee](https://gitee.com/Xgorobot/XgoAI/blob/en/xgo-ai-module-firmware-210722-en-2021-07-22-14-48-10.kfpkg)
+
+[AI模块固件和Sd卡文件](https://www.xgorobot.com/XgoWiki/wiki/1%20XGO-Mini%20K210/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E5%A6%82%E4%BD%95%E7%83%A7%E5%BD%95K210%E5%9B%BA%E4%BB%B6%E5%92%8C%E6%9B%B4%E6%96%B0SD%E5%8D%A1%E6%96%87%E4%BB%B6/)
+
+
+## AI模块Sd卡文件
+
+[-- AI模块sd卡文件(中文) github](https://github.com/Xgorobot/XgoAI/tree/cs/sd)
+[-- AI模块sd卡文件(en) github](https://github.com/Xgorobot/XgoAI/tree/en/sd)
+
+[-- AI模块sd卡文件(中文) gitee](https://gitee.com/Xgorobot/XgoAI/tree/cs/sd)
+[-- AI模块sd卡文件(en) gitee](https://gitee.com/Xgorobot/XgoAI/tree/en/sd)
+## 手机应用程序
+
+[-- 安卓 github](https://github.com/Xgorobot/XgoApp)
+[-- 安卓 gitee](https://gitee.com/Xgorobot/XgoApp)
+苹果应用程序请搜索Apple Store~
+
+## Hex
+[-- github](https://github.com/Xgorobot/mini-hex.git)
+[-- gitee](https://gitee.com/Xgorobot/mini-hex.git)
+
+## XGO Edu
+[-- github](https://github.com/Xgorobot/XGOEdu.git)
+[-- gitee](https://gitee.com/Xgorobot/XGOEdu.git)
+[百度网盘链接](https://pan.baidu.com/s/1C6VDYwell-r6T9_2eTTVjQ)
+提取码：uxuf
+(更新于2021/1/12)
+
+[XGO Edu](https://www.xgorobot.com/XgoWiki/wiki/1%20XGO-Mini%20K210/%E7%BC%96%E7%A8%8B%E5%B9%B3%E5%8F%B0/)
+
+## Python lib
+[-- github](https://github.com/Xgorobot/mini-pythonlib.git)
+[-- gitee](https://gitee.com/Xgorobot/mini-pythonlib.git)
+
+[Python lib](https://www.xgorobot.com/XgoWiki/wiki/1%20XGO-Mini%20K210/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/Python%E5%BA%93%E6%96%87%E4%BB%B6/)
+
+## Mini ROS开发包
+[-- XGOROS](index/XGOROS.rar)
+[wiki](https://www.xgorobot.com/XgoWiki/wiki/1%20XGO-Mini%20K210/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/XGO-Mini%20ROS%E5%BC%80%E5%8F%91%E5%8C%85/)
+
+## Developer firmware
+[-- Developer firmware](index/Developerfirmware.rar)
+[wki](https://www.xgorobot.com/XgoWiki/wiki/1%20XGO-Mini%20K210/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F/) -->
+
+<p><img src="index/IntroducingXGO-Mini.png" alt="introducing" title="introducing"><br><img src="index/IntroducingXGO-Mini2.gif" alt="introducing" title="introducing"><br><strong>XGO-Mini K210是一款具有十二自由度桌面级Al机器狗</strong> ，可实现全向移动、六维姿态控制、姿态稳定、多种运动步态。<br></br></p>
+<p><img src="index/IntroducingXGO-Mini3.png" alt="introducing" title="introducing"><br>内部搭载9轴IMU、关节位置传感器和电流传感器反馈自身姿态和关节转角与力矩，用于内部算法和二次开发。支持电脑对机器狗进行图形化和python编程，开发AI应用。为教育、研究、算法验证和娱乐而设计的。<br></br></p>
+<p><img src="index/AdvancedAI.png" alt="AI" title="AI"><br><img src="index/AdvancedAI2.gif" alt="AI" title="AI"><br>XGO Mini拥有功能齐全的人工智能模块，可方便入门级和高级人工智能应用。Al模块具有视觉识别、语音识别和手势识别功能，使XGO Mini能够像真狗一样听到、识别和回复用户。它还可以跟踪多种颜色，识别二维码、AprilTag和数据矩阵等。通过不同的编程，它可以实现超出您想象的更多功能。<br></br></p>
+<p><img src="index/AdvancedAI3.png" alt="AI" title="AI"><br><strong>口罩识别</strong><br><img src="index/AdvancedAI4.gif" alt="AI" title="AI"><br><strong>手势识别</strong><br><img src="index/AdvancedAI5.gif" alt="AI" title="AI"><br><strong>物体识别</strong><br><img src="index/AdvancedAI6.gif" alt="AI" title="AI"><br><strong>AI芯片</strong><br>XGO Mini的AI模块具有内置Kendryte K210芯片，具有RISC-V处理器体系结构、视听、独立IP核和强大的可编程性。支持存储在Micro SD卡中的图像、音频、视频、机器学习模型和其他类型的材料。<br></br></p>
+<p><img src="index/AdvancedAI7.png" alt="AI" title="AI"><br>XGO团队与<a target="_blank" rel="noopener" href="https://canaan.io/">迦南Canaan</a>合作，通过使用其最强大的边缘计算芯片Kendryte K210，设计了视觉和语义识别，广泛应用于各种场景。迦南是超级计算解决方案的领先供应商，以卓越的成本效率和性能而闻名。<br></br></p>
+<p><img src="index/MoreAgileThanEver.png" alt="agile" title="agile"><br><strong>12自由度</strong><br><img src="index/MoreAgileThanEver2.gif" alt="agile" title="agile"><br>XGO Mini的12个活动关节基于反向运动学，使其能够向前、向后、向左和向右移动，并支持全方位运动和多个方向的运动叠加。<br></br></p>
+<p><strong>更多信息</strong><br><img src="index/MoreAgileThanEver3.gif" alt="agile" title="agile"><br>XGO Mini是一种四足机器人，可以模仿狗走路的动作，并具有在不平的地形和极其粗糙的表面上行走的某些优势。甚至可以通过调整高度来适应躲避障碍物。凭借其独特的仿生系统，XGO Mini可以执行任何动态运动。<br></br></p>
+<p><img src="index/MoreAgileThanEver4.gif" alt="agile" title="agile"><br>XGO的关节由直流电机、减速齿轮、传感器和控制电路组成，带有伺服控制PID算法系统。颠覆无闭环功能的传统转向器，360°角度可控，角度识别精度0.088度，内置加速、启动和停止功能，机械化动作流畅逼真（陆吾智能设计，Feetech制造）<br></br></p>
+<p><strong>自稳定</strong><br><img src="index/MoreAgileThanEver5.gif" alt="agile" title="agile"><br>内置IMU捕捉XGO Mini运动数据，产生高度灵活稳定的运动性能。通过IMU获得的姿势数据，闭环控制允许XGO Mini适应外力，调整手动动作的目标姿势，并启用示教功能。<br></br></p>
+<p><img src="index/MoreAgileThanEver6.gif" alt="agile" title="agile"><br>当它的脚不移动时，可以实现身体六个自由度的运动控制。它具有前所未有的机动性，协调所有本能和复杂的运动。<br></br></p>
+<p><img src="index/EasytoUse.png" alt="use" title="use"><br><strong>一键设计</strong><br><img src="index/EasytoUse2.gif" alt="use" title="use"><br>XGO Mini是一款组装套件，因此可以随时使用。凭借其一键式设计和专属应用程序，你可以轻松地与XGO Mini即时互动。有了Edge计算芯片，人工智能可以在本地系统上运行，并且可以在没有互联网和移动设备的情况下进行控制。<br></br></p>
+<p><img src="index/EasytoUse3.png" alt="use" title="use"><br><strong>App控制</strong><br><img src="index/EasytoUse4.gif" alt="use" title="use"></p>
+<p><img src="index/Possibilities.png" alt="possibilities" title="possibilities"><br><strong>开源与DIY</strong><br><img src="index/Possibilities2.gif" alt="possibilities" title="possibilities"><br>XGO Mini允许用户使用Python编程，我们还为开发人员提供在Ubuntu或Raspberry上运行的ROS包。每个人都可以为XGO Mini创建自己的功能，用于教育、娱乐和商业用途。无限的编程可能性帮助你探索、学习和享受乐趣。如果XGO Mini还不够，我们将为您提供高级版本XGO Ultra。<br></br></p>
+<p><img src="index/Possibilities3.jpg" alt="possibilities" title="possibilities"><br><img src="index/Possibilities4.jpg" alt="possibilities" title="possibilities"><br><img src="index/Possibilities5.png" alt="possibilities" title="possibilities"><br><img src="index/%E4%BB%BF%E7%9C%9F.gif" alt="possibilities" title="possibilities"><br><img src="index/Possibilities6.png" alt="possibilities" title="possibilities"></p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Luwu Intelligent Technology Co., Ltd</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/XgoBlog-zh/js/comments.js"></script><script src="/XgoBlog-zh/js/utils.js"></script><script src="/XgoBlog-zh/js/motion.js"></script><script src="/XgoBlog-zh/js/schemes/muse.js"></script><script src="/XgoBlog-zh/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/XgoBlog-zh/lib/pdf/web/viewer.html"}</script>
+  <script src="/XgoBlog-zh/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
